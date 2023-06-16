@@ -1,0 +1,25 @@
+* 1. algoritmická na zahriatie * 
+Napíšte algoritmus, ktorý bude iterovať celé čísla od 1 do 100 a:
+- ak je číslo deliteľné 3, vypíše na riadku "Super"
+- ak je číslo deliteľné 5, vypíše na riadku "Faktura"
+- ak je číslo deliteľné 15, vypíše "SuperFaktura"
+- ak nesplilo žiadnu z týchto podmienok, vypíše číslo samotné.
+
+Ukážka výstupu:
+1
+2
+Super
+4
+Faktura
+Super
+7
+8
+Super
+Faktura
+11
+Super
+13
+14
+SuperFaktura
+16
+...
