@@ -1,0 +1,41 @@
+* 2. databázová. *
+
+Máte jednoduchú tabuľku s primárnym kľúčom a hodnotou v druhom stĺpci. Niektoré z týchto hodnôt môžu byť duplicitné. Napíšte prosím SQL query, ktorá vráti všetky riadky z tabuľky s duplicitnými hodnotami (*celé* riadky).
+
+Definícia tabuľky a vzorové dáta:
+CREATE TABLE `duplicates` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `value` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+INSERT INTO `duplicates` (`id`, `value`) VALUES
+(1,    1),
+(2,    2),
+(3,    3),
+(4,    2),
+(5,    4),
+(6,    4),
+(7,    5),
+(8,    6),
+(9,    6),
+(10,    2);
+
+Želaný výstup:
+
++----+-------+
+| id | value |
++----+-------+
+|  2 |     2 |
+|  4 |     2 |
+|  5 |     4 |
+|  6 |     4 |
+|  8 |     6 |
+|  9 |     6 |
+| 10 |     2 |
++----+-------+
+
+
+Bude vaše riešenie efektívne fungovať aj na tabuľke s veľkým počtom riadkov (milión a viac)? Vysvetlite prečo a ako.
+
+Použil som grupovanie (GROUP BY) a COUNT, ktoré sú, ako som sa dočítal, optimalizované na hromadné akcie, čiže používajú sa pri hromadných akciách, kde je veľa údajov. Čiže príkaz by bol vhodný na tabuľku s veľkým počtom riadkov. 
