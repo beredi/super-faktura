@@ -2,7 +2,7 @@
 
 class CZCompanyRegistryClient
 {
-    private const API_ENDPOINT = 'http://wwwinfo.mfcr.cz/cgi-bin/ares/darv_bas.cgi';
+	private const API_ENDPOINT = 'http://wwwinfo.mfcr.cz/cgi-bin/ares/darv_bas.cgi';
 	
 	/**
 		Validate ICO format - number, 8 characters
@@ -13,7 +13,7 @@ class CZCompanyRegistryClient
 	{
 		return is_numeric($ico) && strlen($ico) === 8;
 	}
-	
+
 	/**
 		Parse XML from ARES
 		@params $content
@@ -37,15 +37,15 @@ class CZCompanyRegistryClient
 		$xml = $result->children($namespaces['D']);
 		
 		if(!empty($xml) && !empty($xml->E->EK)) {
-            throw new Exception('Not found any data for the given IČO.');
+			throw new Exception('Not found any data for the given IČO.');
 		} elseif(empty($xml)) {
-            throw new Exception('Some problem occurs.');
+			throw new Exception('Some problem occurs.');
 		}
 		
 		return json_encode($xml);
 		
 	}
-	
+
 	/**
 		Get data from url
 		@params string $url
@@ -62,18 +62,18 @@ class CZCompanyRegistryClient
 		@throws InvalidArgumentException
 		@return string - JSON
 	**/
-    public function getCompanyData(string $ico): string
-    {
-        if (!self::validateICO($ico)) {
-            throw new InvalidArgumentException('Invalid IČO provided.');
-        }
+	public function getCompanyData(string $ico): string
+	{
+		if (!self::validateICO($ico)) {
+			throw new InvalidArgumentException('Invalid IČO provided.');
+		}
 
-        $url = self::API_ENDPOINT . '?ico=' . $ico;
+		$url = self::API_ENDPOINT . '?ico=' . $ico;
 		$data = self::getData($url);
 		$json = self::parseXml($data);
 
-        return $json;
-    }
+		return $json;
+	}
 }
 
 ?>
