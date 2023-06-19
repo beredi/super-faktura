@@ -1,0 +1,8 @@
+* 3. PHP * 
+Napíšte prosím jednoduchú knižnicu (libku, ucelený blok kódu) na načítanie údajov firiem z českého registra spoločností. Nie je potrebné vytvárať používateľské rozhranie.
+
+Vstupom metódy pre prácu s dátami má byť IČO. Formát výstupu metódy necháme na vás.
+
+Endpoint pre údaje je http://wwwinfo.mfcr.cz/cgi-bin/ares/darv_bas.cgi?ico={ICO} príklad volania http://wwwinfo.mfcr.cz/cgi-bin/ares/darv_bas.cgi?ico=45626499
+
+Skúste prosím kód vyšperkovať úplne najlepšie, ako dokážete (PHP 7.4+, ošetrenie vstupov, error handling, dokumentácia, formátovanie kódu...).
