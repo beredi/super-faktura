@@ -23,13 +23,13 @@ class CZCompanyRegistryClient
 	private static function parseXml($content): string
 	{
 		if(!$content) {
-			return null;
+			throw new Exception('Not found any data for the given IČO.');
 		}
 		
 		$xml = simplexml_load_string($content);
 		
 		if(!$xml) {
-			return null;
+			throw new Exception('Not found any data for the given IČO.');
 		}
 		
 		$namespaces = $xml->getDocNamespaces();
